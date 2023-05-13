@@ -8,6 +8,7 @@ import { QuizzAppComponent } from './quizz-app/quizz-app.component';
 import { FileManagerAppComponent } from './file-manager-app/file-manager-app.component';
 import { NotesAppComponent } from './notes-app/notes-app.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { HomePageComponent } from './home-page/home-page.component';
     QuizzAppComponent,
     FileManagerAppComponent,
     NotesAppComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

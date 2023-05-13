@@ -1,10 +1,23 @@
-<ul>
-    <li *ngFor="let note of notes">
-      <h3>{{ note.title }}</h3>
-      <p>{{ note.description }}</p>
-      <p>User ID: {{ note.user_id }}</p>
-      <button (click)="deleteNote(note)">Delete Note</button>
-    </li>
-</ul>
-
-<button (click)="createNewNote()">New Note</button>
+<div class="container">
+    <div class="left-panel">
+      <ul>
+        <li *ngFor="let note of notes">
+          <h3>{{ note.title }}</h3>
+          <p>{{ note.description }}</p>
+          <p>User ID: {{ note.user_id }}</p>
+          <button (click)="deleteNote(note)">Delete Note</button>
+        </li>
+      </ul>
+    </div>
+    <div class="right-panel">
+      <h2>Add New Note</h2>
+      <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newNoteTitle">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" [(ngModel)]="newNoteDescription">
+        <button type="button" (click)="createNewNote()">Add Note</button>
+      </form>
+    </div>
+  </div>
+  

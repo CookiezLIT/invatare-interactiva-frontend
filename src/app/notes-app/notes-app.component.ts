@@ -14,6 +14,9 @@ export class NotesAppComponent {
     { id: 3, title: 'Note 3', description: 'This is the third note', user_id: 2 }
   ];
 
+  newNoteTitle: string;
+  newNoteDescription: string;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -32,10 +35,13 @@ export class NotesAppComponent {
   createNewNote(): void {
     const newNote: Notes = {
       id: 5,
-      title: 'New Note',
-      description: '',
+      title: this.newNoteTitle,
+      description: this.newNoteDescription,
       user_id: 1 // Replace with actual user ID
     };
+    console.log("ADAUGAM NOUA NOTITA")
+    console.log("TITLU" + this.newNoteTitle)
+    console.log("DESCRIERE" + this.newNoteDescription)
     // this.http.post('http://example.com/notes', newNote).subscribe((response) => {  
     // });
   }
