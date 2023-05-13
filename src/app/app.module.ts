@@ -9,6 +9,7 @@ import { FileManagerAppComponent } from './file-manager-app/file-manager-app.com
 import { NotesAppComponent } from './notes-app/notes-app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login-component/login-component.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     FileManagerAppComponent,
     NotesAppComponent,
     HomePageComponent,
+    LoginComponent,
   ],
   imports: [
     HttpClientModule,

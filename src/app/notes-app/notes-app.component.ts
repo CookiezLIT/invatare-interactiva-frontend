@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Notes } from '../models/notes';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../auth-service';
+
 
 @Component({
   selector: 'app-notes-app',
@@ -9,25 +11,35 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NotesAppComponent {
   notes: Notes[] = [
-    { id: 1, title: 'Note 1', description: 'This is the first note', user_id: 1 },
-    { id: 2, title: 'Note 2', description: 'This is the second note', user_id: 1 },
-    { id: 3, title: 'Note 3', description: 'This is the third note', user_id: 2 }
+    { id: 1, title: 'Dummy Note 1', description: 'This is the first note', user_id: 1 },
+    { id: 2, title: 'Dummy Note 2', description: 'This is the second note', user_id: 1 },
+    { id: 3, title: 'Dummy Note 3', description: 'This is the third note', user_id: 2 }
   ];
 
   newNoteTitle: string;
   newNoteDescription: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.getAllNotes();
   }
 
-  //TODO: update url
-  getAllNotes(): Notes[] {
-    // this.http.get<Notes[]>('http://example.com/notes').subscribe((response) => {
-    //   this.notes = response;
-    // });
+  getAllNotes() {
+    const token = localStorage.getItem('token')
+    console.log("THE TOKEN IS:")
+    console.log(token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.get<Notes[]>('http://localhost:8000/notes', { headers }).subscribe(
+      response => {
+        this.notes = response;
+      },
+      error => {
+        console.log('Get notes error:', error);
+      }
+    );
     return this.notes;
   }
 

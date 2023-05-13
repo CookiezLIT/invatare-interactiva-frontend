@@ -12,7 +12,9 @@ export class PdfViewComponent implements AfterViewInit{
     WebViewer({
       path: '../../assets/lib',
       initialDoc : 'https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf',
-    }, this.viewerRef.nativeElement)
+    }, this.viewerRef.nativeElement).then(instance => {
+      
+    })
   }
 
 }
