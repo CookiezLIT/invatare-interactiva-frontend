@@ -15,10 +15,9 @@ export class LoginComponent {
   constructor(private authService: AuthService) {}
 
   onSubmit() {
-    console.log("AAA")
     this.authService.login(this.username, this.password).subscribe(
       response => {
-        const token = response.token;
+        const token = response.access_token;
         this.authService.setToken(token);
         localStorage.setItem("token", token);
       },
