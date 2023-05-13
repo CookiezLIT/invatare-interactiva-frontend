@@ -45,17 +45,26 @@ export class NotesAppComponent {
 
   //TODO: update url
   createNewNote(): void {
-    const newNote: Notes = {
-      id: 5,
-      title: this.newNoteTitle,
-      description: this.newNoteDescription,
-      user_id: 1 // Replace with actual user ID
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+
+    const requestBody = {
+      'title': this.newNoteTitle,
+      'content': this.newNoteDescription,
     };
-    console.log("ADAUGAM NOUA NOTITA")
-    console.log("TITLU" + this.newNoteTitle)
-    console.log("DESCRIERE" + this.newNoteDescription)
-    // this.http.post('http://example.com/notes', newNote).subscribe((response) => {  
-    // });
+
+    this.http.post('http://localhost:8000/create_note', requestBody, { headers })
+  .subscribe(
+    (response) => {
+      console.log('POST request successful: ', response);
+    },
+    (error) => {
+      console.error('POST request failed: ', error);
+    }
+  );
   }
 
   deleteNote(note: Notes): void {
