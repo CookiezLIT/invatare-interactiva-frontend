@@ -1,8 +1,14 @@
 <div class="login-container">
-    <h2>Login</h2>
+
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
     <form (ngSubmit)="onSubmit()">
+      <h2>Login Here</h2>
       <label>
-        Username:
+        Username
         <input type="text" name="username" [(ngModel)]="username" required>
       </label>
       <label>
@@ -13,4 +19,3 @@
     </form>
     <p *ngIf="loginError">Invalid username or password.</p>
   </div>
-  
