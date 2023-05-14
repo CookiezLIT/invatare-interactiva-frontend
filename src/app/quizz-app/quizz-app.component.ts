@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./quizz-app.component.scss']
 })
 export class QuizzAppComponent {
-  quizzes: Quiz[] = [];
+  quizzes: Quiz[] = [{"id":1,"question":"Sample Question 1","answers":["Answer 1-1","Answer 1-2","Answer 1-3"],"correct_answer":1},{"id":2,"question":"Sample Question 2","answers":["Answer 2-1","Answer 2-2","Answer 2-3"],"correct_answer":2},{"id":3,"question":"Sample Question 3","answers":["Answer 3-1","Answer 3-2","Answer 3-3"],"correct_answer":3},{"id":4,"question":"Sample Question 4","answers":["Answer 4-1","Answer 4-2","Answer 4-3"],"correct_answer":1},{"id":5,"question":"Sample Question 5","answers":["Answer 5-1","Answer 5-2","Answer 5-3"],"correct_answer":2}];
   selectedAnswers: { [quizId: number]: number } = {};
 
   constructor(private http: HttpClient) { }
