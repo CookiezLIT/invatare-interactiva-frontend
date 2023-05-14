@@ -1,1 +1,20 @@
-<p>quizz-app works!</p>
+<h1>Quiz</h1>
+
+<div *ngIf="quizzes.length > 0">
+  <div *ngFor="let quiz of quizzes">
+    <h3>{{ quiz.question }}</h3>
+    <form>
+      <div *ngFor="let answer of quiz.answers; let i=index">
+        <label>
+          <input type="radio" name="quiz-{{ quiz.id }}" [value]="i" [(ngModel)]="selectedAnswers[quiz.id]">
+          {{ answer }}
+        </label>
+      </div>
+    </form>
+  </div>
+  <button (click)="submit()">Submit</button>
+</div>
+
+<div *ngIf="quizzes.length == 0">
+  <p>No quizzes found.</p>
+</div>
