@@ -10,6 +10,7 @@ import { NotesAppComponent } from './notes-app/notes-app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login-component/login-component.component';
+import { QuizzResultsComponent } from './quizz-results/quizz-results.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoginComponent } from './login-component/login-component.component';
     NotesAppComponent,
     HomePageComponent,
     LoginComponent,
+    QuizzResultsComponent,
   ],
   imports: [
     HttpClientModule,

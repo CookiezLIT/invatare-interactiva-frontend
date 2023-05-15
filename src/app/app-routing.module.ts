@@ -6,6 +6,7 @@ import { NotesAppComponent } from './notes-app/notes-app.component';
 import { QuizzAppComponent } from './quizz-app/quizz-app.component';
 import { LoginComponent } from './login-component/login-component.component';
 import { AuthGuard } from './auth-guard-service';
+import { QuizzResultsComponent } from './quizz-results/quizz-results.component';
 
 const routes: Routes = [
   
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'notes', component: NotesAppComponent},
   {path: 'quizz', component: QuizzAppComponent},
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomePageComponent, canActivate: [AuthGuard] }
+  { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: 'results', component: QuizzResultsComponent}
 ];
 
 @NgModule({

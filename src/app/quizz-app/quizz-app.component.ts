@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Quiz } from '../models/quizz';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-quizz-app',
@@ -28,6 +28,28 @@ export class QuizzAppComponent {
         score++;
       }
     });
+    this.submitQuizResult(1,score);
     alert(`You scored ${score} out of ${this.quizzes.length}!`);
+  }
+
+  
+
+  submitQuizResult(quizId: number, score: number) {
+
+    const token = localStorage.getItem('token')
+    console.log("THE TOKEN IS:")
+    console.log(token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    const body = {
+      quiz_id: quizId,
+      score: score
+    };
+    
+    const response = this.http.post('http://localhost:8000/send_quiz_result',body, {headers});
+    console.log(response);
+    return;
   }
 }

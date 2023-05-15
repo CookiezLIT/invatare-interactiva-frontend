@@ -1,0 +1,29 @@
+div {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    
+    p {
+      margin: 0;
+      font-size: 16px;
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .user-id {
+    color: #f96e5b;
+  }
+  
+  .quiz-id {
+    color: #48bfe3;
+  }
+  
+  .score {
+    color: #56b574;
+  }
